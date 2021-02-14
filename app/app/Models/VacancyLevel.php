@@ -23,4 +23,16 @@ class VacancyLevel extends Model
         }
         return '◎';
     }
+
+    public function slug(): string
+    {
+        //マークとCSSクラスの対応表
+        $markCorrespondSlug = [
+            '×' => 'empty',
+            '△' => 'few',
+            '◎' => 'enough',
+        ];
+        $slug = $markCorrespondSlug[$this->mark()];
+        return $slug;
+    }
 }
