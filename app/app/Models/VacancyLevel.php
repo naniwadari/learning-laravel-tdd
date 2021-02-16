@@ -13,6 +13,11 @@ class VacancyLevel extends Model
         $this->remainingCount = $remainingCount;
     }
 
+    public function __toString()
+    {
+        return $this->mark();
+    }
+
     public function mark(): string
     {
         //slug()と条件分岐が同じなので、安定性の高いslug()を基準としたメソッドにする
