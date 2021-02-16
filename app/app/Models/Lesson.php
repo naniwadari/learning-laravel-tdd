@@ -11,8 +11,16 @@ class Lesson extends Model
         return new VacancyLevel($this->remainingCount());
     }
 
+    /**
+     * 残り席数
+     */
     private function remainingCount(): int
     {
-        return 0;
+        return $this->capacity - $this->reservations()->count();
+    }
+
+    public function reservations()
+    {
+        return $this->hasMany('App\Models\Reservation');
     }
 }
