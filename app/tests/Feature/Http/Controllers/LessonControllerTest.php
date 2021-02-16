@@ -41,18 +41,18 @@ class LessonControllerTest extends TestCase
     {
         return [
             '空きなし' => [
-                'capacity' => 5,
-                'reservationCount' => 5,
+                'capacity' => 6,
+                'reservationCount' => 6,
                 'expectedVacancyLevelMark' => '×'
             ],
             '残りわずか' => [
-                'capacity' => 5,
-                'reservationCount' => 1,
+                'capacity' => 6,
+                'reservationCount' => 2,
                 'expectedVacancyLevelMark' => '△'
             ],
             '空き十分' => [
-                'capacity' => 5,
-                'reservationCount' => 0,
+                'capacity' => 6,
+                'reservationCount' => 1,
                 'expectedVacancyLevelMark' => '◎'
             ],
         ];
