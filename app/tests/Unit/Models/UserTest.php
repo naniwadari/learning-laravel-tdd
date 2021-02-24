@@ -38,16 +38,12 @@ class UserTest extends TestCase
                 'plan' => 'regular',
                 'remainingCount' => 1,
                 'reservationCount' => 4,
-                'canReserve' => true,
             ],
-
             '予約可：ゴールド、空きあり' => [
                 'plan' => 'gold',
                 'remainingCount' => 1,
                 'reservationCount' => 5,
-                'canReserve' => true,
             ],
-
         ];
     }
 
@@ -69,7 +65,7 @@ class UserTest extends TestCase
         $lesson = Mockery::mock(Lesson::class);
         $lesson->shouldReceive('remainingCount')->andReturn($remainingCount);
 
-        $this->expectException($errorMessage);
+        $this->expectExceptionMessage($errorMessage);
 
         $user->canReserve($lesson);
     }
